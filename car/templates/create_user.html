@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    User
+{% endblock %}
+
+{% block create_user %}
+    <form action="" method="post">
+    {% csrf_token %}
+        {{ form.name }}
+        {{ form.phone }}
+        <button class="btn btn-success" type="submit"> Create user </button>
+  </form>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">
+                {{ message|safe }}
+                <a href="" class="close">✖</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}
+
+
