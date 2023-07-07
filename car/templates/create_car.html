@@ -6,22 +6,20 @@
 
 {% block create_car %}
     <form action="" method="post">
-    {% csrf_token %}
-    {{ brand_form.name }}
-     {{ model_form.name }}
-    {{ auto_form.vin_code }}
-    <button class="btn btn-success" type="submit"> Create car </button>
-  </form>
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn-success" type="submit"> Create car</button>
+    </form>
     {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li class="{{ message.tags }}">
-                {{ message|safe }}
-                <a href="" class="close">✖</a>
-            </li>
-        {% endfor %}
-    </ul>
-{% endif %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">
+                    {{ message|safe }}
+                    <a href="" class="close">✖</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}
 s
 
